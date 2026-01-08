@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController; 
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
-  Route::get('/category', [CategoryController::class,'index']);
-    Route::post('/category', [CategoryController::class,'store']);
-    Route::get('/product', [ProductController::class,'index']);
-    Route::post('/product', [ProductController::class,'store']);  
+    
 
 Route::middleware ('auth:sanctum')->group (function(){
-      
+    Route::get('/category', [CategoryController::class,'index']);
+    Route::post('/category', [CategoryController::class,'store']);
+    Route::get('/product', [ProductController::class,'index']);
+    Route::post('/product', [ProductController::class,'store']);
     
 });
